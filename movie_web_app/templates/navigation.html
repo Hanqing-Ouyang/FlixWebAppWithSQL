@@ -1,0 +1,30 @@
+
+<nav id="nav">
+<!--  <img width=10% height=10% src="{{ url_for('static', filename='logo.png') }}" />-->
+
+  <h2 id="nav-header">
+    {% if 'username' in session %} Hello, {{ session['username'] }} {%
+    endif %}
+  </h2>
+    <a class="btn-nav" href="{{ url_for('home_bp.home') }}">Home</a>
+    <a class="btn-nav" href="{{ url_for('movie_bp.movies_by_year') }}">Movie</a>
+    <a class="btn-nav" href="{{ url_for('search_bp.find_movie') }}">Search Movie</a>
+    <a class="btn-nav" href="{{ url_for('authentication_bp.register') }}">Register</a>
+    <a class="btn-nav" href="{{ url_for('authentication_bp.login') }}">Login</a>
+    <a class="btn-nav" href="{{ url_for('authentication_bp.logout') }}">Logout</a>
+    <a class="btn-nav" href="{{ url_for('movie_bp.movies_in_watchlist') }}">My WatchList</a>
+
+  <div>
+    <h3 class="sub-nav-header">Browse by Kind</h3>
+  <ul>
+      <li><a class="btn-nav" href="{{ url_for('actor_bp.list_actor') }}">Actor</a></li>
+      <li><a class="btn-nav" href="{{ url_for('director_bp.list_director') }}">Director</a></li>
+      <li><a class="btn-nav" href="{{ url_for('genre_bp.list_genre') }}">Genre</a></li>
+    </ul>
+
+  </div>
+
+  <div id="nav-footer">
+    COMPSCI 235 Student 'houy408'
+  </div>
+</nav>

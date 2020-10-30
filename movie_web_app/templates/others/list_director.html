@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% import 'others/pages.html' as pg %}
+
+{% block content %}
+
+<main  id="main">
+    <table>
+        <tr>
+            <th>director_full_name</th>
+        </tr>
+        {% for director in directors %}
+            <tr>
+                <td>{{ director.director_full_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+        <div class="pages">
+            {{pagination.links}}
+        </div>
+</main>
+
+{% endblock %}

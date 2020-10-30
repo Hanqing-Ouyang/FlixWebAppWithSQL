@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main id="main">
+    <div>
+    {% if movies != [] %}
+        <table>
+        <tr>
+            <th>Rank</th>
+            <th>Title</th>
+            <th>Released Year</th>
+            <th>Actors</th>
+            <th>Director</th>
+        </tr>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.actors }}</td>
+                <td>{{ movie.director }}</td>
+            </tr>
+            <tr></tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <p>"There is no such a movie."</p>
+        {% endif %}
+    </div>
+
+</main>
+
+{% endblock %}

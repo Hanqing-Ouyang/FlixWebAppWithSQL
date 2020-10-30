@@ -1,0 +1,17 @@
+<aside id="sidebar">
+
+    <header>
+        <h1>Editor's picks</h1>
+    </header>
+
+    {% for movie in selected_movies %}
+        <div id="article-container">
+            <a href="'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/halloween-movies-1600459548.jpg?crop=1xw:1xh;center,top&resize=980:*'" >
+                <img src= 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/halloween-movies-1600459548.jpg?crop=1xw:1xh;center,top&resize=980:*' class="img-small">
+            </a>
+            <div id="article-description">
+                <p>{{ movie.title }}, ({{ movie.year }}).</p>
+            </div>
+        </div>
+    {% endfor %}
+</aside>

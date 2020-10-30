@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main id="main">
+
+    <table>
+        <tr>
+            <th>actor_full_name</th>
+        </tr>
+        {% for actor in actors %}
+            <tr>
+                <td>{{ actor.actor_full_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+        <div class="pages">
+            {{pagination.links}}
+        </div>
+</main>
+
+{% endblock %}

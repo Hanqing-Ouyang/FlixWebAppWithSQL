@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main id="main">
+    <div id="search">
+        <form method="POST" action="{{handler_ur}}">
+            {{ form.csrf_token }}
+            <div>
+                {{ form.movie_title.label }}
+
+                {{ form.movie_title }}
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+</main>
+
+{% endblock %}
