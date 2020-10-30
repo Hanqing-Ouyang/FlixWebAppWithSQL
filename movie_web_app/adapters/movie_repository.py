@@ -132,8 +132,8 @@ class MainRepository(AbstractRepository):
 
     def get_user(self, username) -> User:
         # print(username)
-        # print("get_user",next((user for user in self._users if user.user_name == username.lower()), None))
-        return next((user for user in self._users if user.user_name == username.lower()), None)
+        # print("get_user",next((user for user in self._users if user.username == username.title()), None))
+        return next((user for user in self._users if user.username == username.title()), None)
 
     def add_users(self, users:list):
         for user in users:
@@ -299,7 +299,7 @@ def load_users(data_path: str, repo: MainRepository):
 
     for data_row in read_csv_file(data_path + '/users.csv'):
         user = User(
-            user_name=data_row[1],
+            username=data_row[1],
             password=generate_password_hash(data_row[2])
         )
         repo.add_user(user)

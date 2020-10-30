@@ -158,8 +158,8 @@ def reviews_to_dict(reviews: Iterable[Review]):
 
 def genre_to_dict(genre: Genre):
     genre_dict = {
-        'name': genre.genre_name,
-        'genreged_movies': [movie.id for movie in repo.repo_instance.get_result(genre.genre_name)]
+        'genre_name': genre.genre_name,
+        'genred_movies': [movie.id for movie in genre.genred_movies]
     }
     return genre_dict
 

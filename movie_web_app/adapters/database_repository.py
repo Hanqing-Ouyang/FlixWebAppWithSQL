@@ -344,7 +344,7 @@ def get_genre_records():
     for genre in genres.keys():
         genre_key = genre_key + 1
         genre_records.append((genre_key, genre))
-    print("this is the genre",genre_records)
+    # print("this is the genre",genre_records)
     return genre_records
 
 
@@ -373,7 +373,7 @@ def generic_generator(filename, post_process=None):
 
             if post_process is not None:
                 row = post_process(row)
-            print(row)
+            # print(row)
             yield row
 
 
@@ -402,11 +402,11 @@ def populate(engine: Engine, data_path: str):
             VALUES (?, ?)"""
     cursor.executemany(insert_genres, get_genre_records())
     #
-    # insert_movie_genres = """
-    #         INSERT INTO movie_genres (
-    #         id, movie_id, genre_id)
-    #         VALUES (?, ?, ?)"""
-    # cursor.executemany(insert_movie_genres, movie_genres_generator())
+    insert_movie_genres = """
+            INSERT INTO movie_genres (
+            id, movie_id, genre_id)
+            VALUES (?, ?, ?)"""
+    cursor.executemany(insert_movie_genres, movie_genres_generator())
 
     insert_users = """
         INSERT INTO users (

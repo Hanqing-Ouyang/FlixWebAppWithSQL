@@ -23,9 +23,9 @@ def genre():
 
 
 def test_user_construction(user):
-    assert user.user_name == 'dbowie'
+    assert user.username == 'Dbowie'
     assert user.password == '1234567890'
-    assert repr(user) == '<User dbowie>'
+    assert repr(user) == '<User Dbowie>'
 
     for review in user.reviews:
         # User should have an empty list of reviews after construction.

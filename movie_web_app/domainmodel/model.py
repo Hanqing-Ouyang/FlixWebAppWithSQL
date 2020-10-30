@@ -360,23 +360,26 @@ class Genre:
             self, genre_name: str,
     ):
         self._genre_name: str = genre_name
-        self._genreged_movies: List[Movie] = list()
+        self._genred_movies: List[Movie] = list()
 
     @property
     def genre_name(self) -> str:
         return self._genre_name
 
     @property
-    def genreged_movies(self) -> list:
-        return self._genreged_movies
+    def genred_movies(self) -> list:
+        return self._genred_movies
 
     # @property
     # def genreged_movies(self, ) -> str:
     #     return self._genre_name
 
     def is_applied_to(self, movie: Movie) -> bool:
-        return movie in self._genreged_movies
+        return movie in self._genred_movies
 
+    def add_movie(self, movie: Movie):
+        self._genred_movies.append(movie)
+        
     @property
     def number_of_genred_movies(self) -> int:
         return len(self._genred_movies)

@@ -14,8 +14,8 @@ from movie_web_app.datafilereaders.movie_file_csv_reader import MovieFileCSVRead
 
 # TEST_DATA_PATH = os.path.join('C:', os.sep, 'iCloud Drive', 'Documents', 'GitHub', 'FlixSkeletonWebApp','movie_web_app', 'tests', 'data')
 #TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'iwar006', 'Documents', 'Python dev', 'COVID-19', 'tests', 'data')
-TEST_DATA_PATH_MEMORY = '/Users/takesei/Documents/GitHub/FlixSkeletonWebApp/movie_web_app/tests/data/movie'
-TEST_DATA_PATH_DATABASE = '/Users/takesei/Documents/GitHub/FlixSkeletonWebApp/movie_web_app/tests/data/database'
+TEST_DATA_PATH_MEMORY = '/Users/takesei/Documents/GitHub/FlixWebAppWithSQL/movie_web_app/tests/data/movie'
+TEST_DATA_PATH_DATABASE = '/Users/takesei/Documents/GitHub/FlixWebAppWithSQL/movie_web_app/tests/data/database'
 
 TEST_DATABASE_URI_IN_MEMORY = 'sqlite://'
 TEST_DATABASE_URI_FILE = 'sqlite:///movie_webb_app_test.db'

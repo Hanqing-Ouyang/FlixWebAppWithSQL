@@ -15,7 +15,7 @@ def test_can_add_user(in_movie_repo):
     auth_services.add_user(new_username, new_password, in_movie_repo)
 
     user_as_dict = auth_services.get_user(new_username, in_movie_repo)
-    assert user_as_dict['username'] == new_username
+    assert user_as_dict['username'] == new_username.title()
 
     # Check that password has been encrypted.
     assert user_as_dict['password'].startswith('pbkdf2:sha256:')
@@ -99,7 +99,7 @@ def test_can_get_movie(in_movie_repo):
     #assert movie_as_dict['first_para'] == 'US President Trump tweeted on Saturday night (US time) that he has asked the Centres for Disease Control and Prevention to issue a ""strong Travel Advisory"" but that a quarantine on the New York region"" will not be necessary.'
     assert len(movie_as_dict['reviews']) == 0
 
-    genre_names = [dictionary['name'] for dictionary in movie_as_dict['genres']]
+    genre_names = [dictionary['genre_name'] for dictionary in movie_as_dict['genres']]
     assert len(genre_names) == 3
 
 
@@ -114,13 +114,13 @@ def test_cannot_get_movie_with_non_existent_id(in_movie_repo):
 def test_get_first_movie(in_movie_repo):
     movie_as_dict = news_services.get_first_movie(in_movie_repo)
 
-    assert movie_as_dict['id'] == 1
+    assert movie_as_dict['id'] == 966
 
 
 def test_get_last_movie(in_movie_repo):
     movie_as_dict = news_services.get_last_movie(in_movie_repo)
 
-    assert movie_as_dict['id'] == 1000
+    assert movie_as_dict['id'] == 3
 
 
 def test_get_movies_by_year_with_one_year(in_movie_repo):
@@ -129,7 +129,7 @@ def test_get_movies_by_year_with_one_year(in_movie_repo):
     movies_as_dict, prev_year, next_year = news_services.get_movies_by_year(target_year, in_movie_repo)
 
     assert len(movies_as_dict) == 53
-    assert movies_as_dict[0]['id'] == 40
+    assert movies_as_dict[0]['id'] == 997
 
     assert prev_year == 2006
     assert next_year == 2008

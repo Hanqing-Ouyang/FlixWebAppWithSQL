@@ -28,7 +28,7 @@ def create_app(test_config=None):
 
     if app.config['REPOSITORY'] == 'movie':
         # Create the MemoryRepository instance for a memory-based repository.
-        filename = '/Users/takesei/Documents/GitHub/FlixSkeletonWebApp/movie_web_app/datafiles/Data1000Movies.csv'
+        filename = '/Users/takesei/Documents/GitHub/FlixWebAppWithSQL/movie_web_app/datafiles/Data1000Movies.csv'
         movie_file_reader = MovieFileCSVReader(filename)
         repo.repo_instance = movie_repository.MainRepository()
         # repo.repo_instance.add_movies(movie_file_reader.dataset_of_movies)

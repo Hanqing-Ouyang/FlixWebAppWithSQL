@@ -71,6 +71,7 @@ def test_repository_can_retrieve_movie(session_factory):
     assert review_two.user.username == "thorke"
 
     # Check that the movie is genreged as expected.
+
     assert movie.is_genred_by(Genre('Action'))
     assert movie.is_genred_by(Genre('Adventure'))
 
@@ -106,16 +107,16 @@ def test_repository_can_retrieve_genres(session_factory):
     genres = repo.get_genres()
 
     assert len(genres) == 20
-
+    # print(genres)
     genre_one = [genre for genre in genres if genre.genre_name == 'Action'][0]
     genre_two = [genre for genre in genres if genre.genre_name == 'History'][0]
     genre_three = [genre for genre in genres if genre.genre_name == 'Thriller'][0]
     genre_four = [genre for genre in genres if genre.genre_name == 'Horror'][0]
 
-    assert genre_one.number_of_genred_movies == 0
-    assert genre_two.number_of_genred_movies == 2
-    assert genre_three.number_of_genred_movies == 64
-    assert genre_four.number_of_genred_movies == 1
+    assert genre_one.number_of_genred_movies == 303
+    assert genre_two.number_of_genred_movies == 29
+    assert genre_three.number_of_genred_movies == 195
+    assert genre_four.number_of_genred_movies == 119
 
 def test_repository_can_get_first_movie(session_factory):
     repo = SqlAlchemyRepository(session_factory)
@@ -159,14 +160,30 @@ def test_repository_returns_an_empty_list_for_non_existent_ids(session_factory):
 def test_repository_returns_movie_ids_for_existing_genre(session_factory):
     repo = SqlAlchemyRepository(session_factory)
 
-    movie_ids = repo.get_movie_ids_for_genre('Action')
+    movie_ids = repo.get_movie_ids_for_genre('History')
 
-    assert movie_ids == [1, 2]
+    assert movie_ids == [12,17,44,56,67,71,112,168,169,193,237,253,278,
+ 300,
+ 334,
+ 384,
+ 407,
+ 472,
+ 475,
+ 521,
+ 523,
+ 577,
+ 644,
+ 673,
+ 755,
+ 810,
+ 868,
+ 963,
+ 990]
 
 def test_repository_returns_an_empty_list_for_non_existent_genre(session_factory):
     repo = SqlAlchemyRepository(session_factory)
 
-    movie_ids = repo.get_movie_ids_for_genre('History')
+    movie_ids = repo.get_movie_ids_for_genre('Morning')
 
     assert len(movie_ids) == 0
 
@@ -232,7 +249,7 @@ def test_repository_does_not_add_a_review_without_a_user(session_factory):
     repo = SqlAlchemyRepository(session_factory)
 
     movie = repo.get_movie(2)
-    review = Review(None, movie, "Trump's onto it!", datetime.today())
+    review = Review(movie,None, "Trump's onto it!", datetime.today())
 
     with pytest.raises(RepositoryException):
         repo.add_review(review)
