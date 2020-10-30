@@ -8,14 +8,14 @@ The skeleton python project for the 2020 S2 CompSci 235 practical assignment CS2
 First Way:
 (For Windows)
 ```shell
-$ cd FlixSkeletonWebApp
+$ cd FlixWebAppWithSQL
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 $ pip install -r requirements.txt
 ```
 (For Mac)
 ```shell
-$ cd FlixSkeletonWebApp
+$ cd FlixWebAppWithSQL
 $ python3 -m venv venv
 $ venv\Scripts\activate
 $ python3 -m pip install -r requirements.txt
@@ -44,7 +44,7 @@ Note: sometimes several packages need you to install manually after above steps.
 
 **Running the application**
 
-From the *FlixSkeletonWebApp* directory, and within the activated virtual environment (see *venv\Scripts\activate* above):
+From the *FlixWebAppWithSQL* directory, and within the activated virtual environment (see *venv\Scripts\activate* above):
 
 (For Windows)
 ````shell
@@ -57,7 +57,7 @@ $ python3 -m flask run
 
 ## Configuration
 
-The *FlixSkeletonWebApp/.env* file contains variable settings. They are set with appropriate values.
+The *FlixWebAppWithSQL/.env* file contains variable settings. They are set with appropriate values.
 
 * `FLASK_APP`: Entry point of the application (should always be `wsgi.py`).
 * `FLASK_ENV`: The environment in which to run the application (either `development` or `production`).
@@ -68,15 +68,15 @@ The *FlixSkeletonWebApp/.env* file contains variable settings. They are set with
 
 ## Testing
 
-Testing requires that file *FlixSkeletonWebApp/tests/conftest.py* be edited to set the value of `TEST_DATA_PATH`. You should set this to the absolute path of the *FlixSkeletonWebApp/tests/data* directory. 
+Testing requires that file *movie_web_app/tests/conftest.py* be edited to set the value of `TEST_DATA_PATH`. You should set this to the absolute path of the *movie_web_app/tests/data* directory. 
 
 E.g. 
 
-`TEST_DATA_PATH = '/Users/takesei/Documents/GitHub/FlixSkeletonWebApp/movie_web_app/tests/data'`
+`TEST_DATA_PATH = '/Users/takesei/Documents/GitHub/FlixWebAppWithSQL/movie_web_app/tests/data'`
 
 assigns TEST_DATA_PATH with the following value (the use of os.path.join and os.sep ensures use of the correct platform path separator):
 
-`/Users/takesei/Documents/GitHub/FlixSkeletonWebApp/movie_web_app/tests/data`
+`/Users/takesei/Documents/GitHub/FlixWebAppWithSQL/movie_web_app/tests/data`
 
 You can then run tests from within PyCharm.
 
